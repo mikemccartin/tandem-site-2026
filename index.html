@@ -1722,6 +1722,94 @@
     }
 
     /* ========================================
+       INSIGHTS SECTION
+       ======================================== */
+    .insights__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      margin-bottom: var(--space-10);
+    }
+
+    .insight-card {
+      position: relative;
+      padding: var(--space-6);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--white-10);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .insight-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--red-accent);
+      transform: translateY(-4px);
+    }
+
+    .insight-card__date {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gray-accent);
+      margin-bottom: var(--space-3);
+    }
+
+    .insight-card__title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: var(--space-3);
+      line-height: 1.4;
+    }
+
+    .insight-card__excerpt {
+      font-size: 0.9375rem;
+      color: var(--white-60);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .insight-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--red-light);
+      transition: color var(--transition-fast);
+    }
+
+    .insight-card__link:hover {
+      color: var(--white);
+    }
+
+    .insight-card__link svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+    }
+
+    .insights__cta {
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .insights__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .insights__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========================================
        CLIENTS SECTION
        ======================================== */
     .clients__grid {
@@ -1980,6 +2068,7 @@
           <li><a href="#platform" class="nav__link">Technology</a></li>
           <li><a href="#capabilities" class="nav__link">Services</a></li>
           <li><a href="#evidence" class="nav__link">Results</a></li>
+          <li><a href="#insights" class="nav__link">Insights</a></li>
           <li><a href="#clients" class="nav__link">Clients</a></li>
           <li><a href="#contact" class="btn btn--glass">Start a Conversation</a></li>
         </ul>
@@ -2645,8 +2734,90 @@
     </div>
   </section>
 
+  <!-- Insights Section -->
+  <section class="section section--dark" id="insights">
+    <div class="container">
+      <div class="section__header fade-in">
+        <span class="section__label">Insights</span>
+        <h2 class="section__title">Thinking That Drives Results</h2>
+        <p class="section__subtitle">
+          Original research, strategic perspectives, and industry analysis from our team.
+        </p>
+      </div>
+
+      <div class="insights__grid">
+        <a href="https://tandemtheory.com/insights/how-brands-can-win-consumers-with-ai/" target="_blank" rel="noopener" class="insight-card fade-in">
+          <div class="insight-card__date">May 20, 2025</div>
+          <h3 class="insight-card__title">Tandem Pulse: How Brands Can Win Consumers with AI</h3>
+          <p class="insight-card__excerpt">In a world of rising skepticism and AI overload, how can brands stay trusted, chosen, and relevant?</p>
+          <span class="insight-card__link">
+            Read More
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <a href="https://tandemtheory.com/insights/how-ai-is-reshaping-crm-personalization/" target="_blank" rel="noopener" class="insight-card fade-in stagger-1">
+          <div class="insight-card__date">May 5, 2025</div>
+          <h3 class="insight-card__title">Precision at Scale: How AI is Reshaping CRM Personalization</h3>
+          <p class="insight-card__excerpt">The question isn't whether to adopt AI but how to integrate it meaningfully across the entire CRM lifecycle.</p>
+          <span class="insight-card__link">
+            Read More
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <a href="https://tandemtheory.com/insights/owning-your-ethos/" target="_blank" rel="noopener" class="insight-card fade-in stagger-2">
+          <div class="insight-card__date">April 25, 2025</div>
+          <h3 class="insight-card__title">Owning Your Ethos: Culture, Conviction and Business Performance</h3>
+          <p class="insight-card__excerpt">Does counterculture brand positioning help or hurt business performance? A data-driven analysis.</p>
+          <span class="insight-card__link">
+            Read More
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <a href="https://tandemtheory.com/insights/navigating-the-impact-of-2025-tariffs-on-us-businesses-and-marketing-strategies/" target="_blank" rel="noopener" class="insight-card fade-in stagger-3">
+          <div class="insight-card__date">April 18, 2025</div>
+          <h3 class="insight-card__title">Navigating the Impact of 2025 Tariffs on U.S. Businesses</h3>
+          <p class="insight-card__excerpt">The 2025 tariffs have created a ripple effect across the U.S. economy, impacting industries and marketing strategies.</p>
+          <span class="insight-card__link">
+            Read More
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <a href="https://tandemtheory.com/insights/megan-flynn-dallas-business-journals-c-suite-awards/" target="_blank" rel="noopener" class="insight-card fade-in stagger-1">
+          <div class="insight-card__date">February 5, 2025</div>
+          <h3 class="insight-card__title">CSO Megan Flynn Named to Dallas Business Journal's C-Suite Awards</h3>
+          <p class="insight-card__excerpt">Recognition of excellence in strategic leadership from Dallas Business Journal's prestigious C-Suite Leader Awards.</p>
+          <span class="insight-card__link">
+            Read More
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <a href="https://tandemtheory.com/insights/tandem-pulse-2025-consumer-trends/" target="_blank" rel="noopener" class="insight-card fade-in stagger-2">
+          <div class="insight-card__date">January 23, 2025</div>
+          <h3 class="insight-card__title">Tandem Pulse: 2025 Consumer Trends</h3>
+          <p class="insight-card__excerpt">Explore Tandem Pulse: Navigating the Year of Contradictions to uncover the strategies and trends you need.</p>
+          <span class="insight-card__link">
+            Read More
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="insights__cta fade-in">
+        <a href="https://tandemtheory.com/insights/" target="_blank" rel="noopener" class="btn btn--outline">
+          View All Insights
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Clients Section -->
-  <section class="section section--dark" id="clients">
+  <section class="section section--gradient" id="clients">
     <div class="container">
       <div class="section__header fade-in">
         <span class="section__label">Our Clients</span>
