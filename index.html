@@ -543,34 +543,6 @@
       justify-content: center;
     }
 
-    .hero__scroll {
-      position: absolute;
-      bottom: var(--space-8);
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: var(--z-content);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-2);
-      color: var(--white-40);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      animation: bounce 2s ease-in-out infinite;
-    }
-
-    .hero__scroll svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--white-40);
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(10px); }
-    }
-
     /* ========================================
        SECTION STYLES
        ======================================== */
@@ -2045,14 +2017,6 @@
         We are a marketing and technology company. We help leading brands convert new customers and grow existing ones through technology-powered analytics, strategy, creative and media.
       </p>
       <a href="#contact" class="btn btn--primary btn--lg">Let's Talk</a>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="hero__scroll">
-      <span>Scroll</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-      </svg>
     </div>
   </section>
 
