@@ -372,6 +372,7 @@
        ======================================== */
     .hero {
       position: relative;
+      z-index: 1;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -2142,6 +2143,9 @@
       </video>
       <div class="hero__video-overlay"></div>
     </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles" class="hero__particles"></canvas>
 
     <!-- Animated Background Layers (subtle, over video) -->
     <div class="hero__layers">
