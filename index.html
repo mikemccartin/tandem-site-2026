@@ -1662,36 +1662,56 @@
 
     /* Client Logos Grid */
     .client-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-8);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
       padding: var(--space-8) 0;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .client-logo {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: var(--space-4) var(--space-6);
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      background: var(--white);
+      border-radius: var(--radius-md);
+      min-height: 80px;
       transition: all var(--transition-base);
+    }
+
+    .client-logo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .client-logo img {
-      max-height: 40px;
-      max-width: 120px;
+      max-height: 44px;
+      max-width: 100%;
       width: auto;
       height: auto;
-      filter: grayscale(100%) brightness(2);
-      opacity: 0.7;
-      transition: all var(--transition-base);
+      object-fit: contain;
     }
 
-    .client-logo:hover img {
-      filter: grayscale(0%) brightness(1);
-      opacity: 1;
+    @media (max-width: 768px) {
+      .client-logos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .client-logos {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3);
+      }
+      .client-logo {
+        padding: var(--space-4);
+        min-height: 60px;
+      }
+      .client-logo img {
+        max-height: 32px;
+      }
     }
 
     @media (max-width: 900px) {
@@ -2564,13 +2584,13 @@
       <!-- Client Logos -->
       <div class="client-logos fade-in" style="margin-top: var(--space-16);">
         <div class="client-logo"><img src="photos/logos/upbound.png" alt="Upbound Group"></div>
-        <div class="client-logo"><img src="photos/logos/rac.png" alt="Rent-A-Center"></div>
+        <div class="client-logo"><img src="photos/logos/rac.jpeg" alt="Rent-A-Center"></div>
         <div class="client-logo"><img src="photos/logos/acima.png" alt="Acima"></div>
         <div class="client-logo"><img src="photos/logos/daikin.png" alt="Daikin"></div>
         <div class="client-logo"><img src="photos/logos/goodman.png" alt="Goodman"></div>
         <div class="client-logo"><img src="photos/logos/purina.png" alt="Purina"></div>
         <div class="client-logo"><img src="photos/logos/regis.png" alt="Regis"></div>
-        <div class="client-logo"><img src="photos/logos/texashealth.jpg" alt="Texas Health Resources"></div>
+        <div class="client-logo"><img src="photos/logos/texashealth.png" alt="Texas Health Resources"></div>
         <div class="client-logo"><img src="photos/logos/benihana.png" alt="Benihana"></div>
       </div>
     </div>
