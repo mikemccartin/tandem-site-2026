@@ -1670,19 +1670,28 @@
     }
 
     .client-logo {
-      font-size: var(--text-lg);
-      font-weight: 600;
-      color: var(--white-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: var(--space-4) var(--space-6);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--white-10);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: var(--radius-lg);
       transition: all var(--transition-base);
     }
 
-    .client-logo:hover {
-      color: var(--white);
-      border-color: var(--red-accent);
+    .client-logo img {
+      max-height: 40px;
+      max-width: 120px;
+      width: auto;
+      height: auto;
+      filter: grayscale(100%) brightness(2);
+      opacity: 0.7;
+      transition: all var(--transition-base);
+    }
+
+    .client-logo:hover img {
+      filter: grayscale(0%) brightness(1);
+      opacity: 1;
     }
 
     @media (max-width: 900px) {
@@ -2554,15 +2563,12 @@
 
       <!-- Client Logos -->
       <div class="client-logos fade-in" style="margin-top: var(--space-16);">
-        <div class="client-logo">Upbound</div>
-        <div class="client-logo">Rent-A-Center</div>
-        <div class="client-logo">Acima</div>
-        <div class="client-logo">Daikin</div>
-        <div class="client-logo">Goodman</div>
-        <div class="client-logo">Purina</div>
-        <div class="client-logo">Regis</div>
-        <div class="client-logo">Texas Health</div>
-        <div class="client-logo">Benihana</div>
+        <div class="client-logo"><img src="photos/logos/rac.png" alt="Rent-A-Center"></div>
+        <div class="client-logo"><img src="photos/logos/acima.png" alt="Acima"></div>
+        <div class="client-logo"><img src="photos/logos/daikin.png" alt="Daikin"></div>
+        <div class="client-logo"><img src="photos/logos/purina.png" alt="Purina"></div>
+        <div class="client-logo"><img src="photos/logos/regis.png" alt="Regis"></div>
+        <div class="client-logo"><img src="photos/logos/benihana.png" alt="Benihana"></div>
       </div>
     </div>
   </section>
