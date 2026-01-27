@@ -380,6 +380,31 @@
       background: var(--gradient-dark);
     }
 
+    /* Video Background */
+    .hero__video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero__video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero__video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 12, 0.7);
+    }
+
     /* Particle Canvas */
     .hero__particles {
       position: absolute;
@@ -2096,14 +2121,11 @@
         </button>
 
         <ul class="nav__menu" id="navMenu">
-          <li><a href="#theory" class="nav__link">Our Theory</a></li>
-          <li><a href="#founders" class="nav__link">Humans</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
           <li><a href="#platform" class="nav__link">Technology</a></li>
           <li><a href="#capabilities" class="nav__link">Services</a></li>
-          <li><a href="#insights" class="nav__link">Insights</a></li>
-          <li><a href="#evidence" class="nav__link">Results</a></li>
-          <li><a href="#clients" class="nav__link">Clients</a></li>
-          <li><a href="#contact" class="btn btn--glass">Start a Conversation</a></li>
+          <li><a href="#results" class="nav__link">Results</a></li>
+          <li><a href="#contact" class="btn btn--glass">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -2111,7 +2133,15 @@
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
-    <!-- Animated Background Layers -->
+    <!-- Video Background -->
+    <div class="hero__video-container">
+      <video class="hero__video" autoplay muted loop playsinline>
+        <source src="photos/hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero__video-overlay"></div>
+    </div>
+
+    <!-- Animated Background Layers (subtle, over video) -->
     <div class="hero__layers">
       <div class="layer layer--1"></div>
       <div class="layer layer--2"></div>
@@ -2121,9 +2151,6 @@
 
     <!-- Grid Overlay -->
     <div class="hero__grid"></div>
-
-    <!-- Particle Canvas -->
-    <canvas class="hero__particles" id="particles"></canvas>
 
     <!-- Content -->
     <div class="hero__content">
@@ -2949,6 +2976,7 @@
         </div>
 
         <div class="footer__links">
+          <a href="#insights">Insights</a>
           <a href="mailto:hello@tandemtheory.com">hello@tandemtheory.com</a>
           <a href="privacy-policy.html">Privacy Policy</a>
           <a href="https://missing.link/entities/tandem-theory" target="_blank" rel="noopener">Verified Entity Data</a>
