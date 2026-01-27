@@ -1916,17 +1916,90 @@
       margin-bottom: var(--space-4);
     }
 
+    .cta__inner {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(254, 0, 0, 0.3);
+      border-radius: var(--radius-xl);
+      padding: var(--space-16) var(--space-12);
+      box-shadow:
+        0 0 60px rgba(254, 0, 0, 0.15),
+        0 0 120px rgba(254, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .cta__inner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--red-accent), transparent);
+      border-radius: 0 0 2px 2px;
+    }
+
+    .cta__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      background: rgba(254, 0, 0, 0.12);
+      border: 1px solid rgba(254, 0, 0, 0.25);
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      margin-bottom: var(--space-8);
+    }
+
+    .cta__headlines {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-bottom: var(--space-10);
+    }
+
     .cta__headline {
       font-size: clamp(1.5rem, 4vw, 2.25rem);
       font-weight: 400;
-      color: var(--white-90);
-      margin-bottom: var(--space-2);
+      color: var(--white-70);
       line-height: 1.3;
+      margin: 0;
+    }
+
+    .cta__headline--primary {
+      font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+    }
+
+    .cta__headline--accent {
+      position: relative;
+      padding-top: var(--space-6);
+      margin-top: var(--space-2);
+    }
+
+    .cta__headline--accent::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--white-40), transparent);
     }
 
     .cta__headline strong {
       font-weight: 700;
-      color: var(--white);
+      background: linear-gradient(135deg, var(--white) 0%, var(--red-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .cta__headline + .cta__offer {
@@ -1955,6 +2028,31 @@
       flex-wrap: wrap;
       gap: var(--space-4);
       justify-content: center;
+    }
+
+    .btn--cta {
+      padding: 1.25rem 3rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--red-accent) 0%, #cc0000 100%);
+      border: none;
+      box-shadow:
+        0 4px 20px rgba(254, 0, 0, 0.4),
+        0 0 40px rgba(254, 0, 0, 0.2);
+      transition: all var(--transition-base);
+    }
+
+    .btn--cta:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 6px 30px rgba(254, 0, 0, 0.5),
+        0 0 60px rgba(254, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .cta__inner {
+        padding: var(--space-10) var(--space-6);
+      }
     }
 
     /* ========================================
@@ -2601,11 +2699,13 @@
   <section class="section section--darker cta" id="contact">
     <div class="container">
       <div class="cta__inner fade-in">
-        <span class="section__label">Contact</span>
-        <p class="cta__headline">Same money. <strong>20% better results.</strong></p>
-        <p class="cta__headline">Same results. <strong>20% lower spend.</strong></p>
-        <p class="cta__headline">Tell us your top 5 problems. <strong>We'll solve one for free.</strong></p>
-        <a href="mailto:hello@tandemtheory.com" class="btn btn--primary btn--lg" style="margin-top: var(--space-8);">Let's Talk</a>
+        <span class="cta__label">Contact</span>
+        <div class="cta__headlines">
+          <p class="cta__headline cta__headline--primary">Same money. <strong>20% better results.</strong></p>
+          <p class="cta__headline">Same results. <strong>20% lower spend.</strong></p>
+          <p class="cta__headline cta__headline--accent">Tell us your top 5 problems. <strong>We'll solve one for free.</strong></p>
+        </div>
+        <a href="mailto:hello@tandemtheory.com" class="btn btn--primary btn--lg btn--cta">Let's Talk</a>
       </div>
     </div>
   </section>
