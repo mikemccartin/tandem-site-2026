@@ -1615,76 +1615,25 @@
     }
 
     /* ========================================
-       EVIDENCE / RESULTS SECTION
+       RESULTS SECTION - TESTIMONIALS & LOGOS
        ======================================== */
-    .evidence__grid {
+    .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-6);
     }
 
-    .evidence-card {
+    .testimonial-card {
       padding: var(--space-8);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--white-10);
+      background: linear-gradient(135deg, rgba(254, 0, 0, 0.08), rgba(254, 0, 0, 0.02));
+      border: 1px solid rgba(254, 0, 0, 0.2);
       border-radius: var(--radius-xl);
-      transition: all var(--transition-base);
-    }
-
-    .evidence-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--red-accent);
-      box-shadow: var(--shadow-glow-red);
-    }
-
-    .evidence-card__industry {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gray-accent);
-      margin-bottom: var(--space-2);
-    }
-
-    .evidence-card__client {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: var(--space-4);
-    }
-
-    .evidence-card__description {
-      font-size: var(--text-base);
-      line-height: 1.7;
-      color: var(--white-70);
-      margin-bottom: var(--space-5);
-    }
-
-    .evidence-card__result {
-      font-size: var(--text-sm);
-      color: var(--white-60);
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--white-10);
-    }
-
-    .evidence-card__result strong {
-      color: var(--red-accent);
-    }
-
-    .result-label {
-      color: var(--gray-accent);
-      font-weight: 600;
-    }
-
-    /* Testimonial card variant */
-    .evidence-card--quote {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(254, 0, 0, 0.08), rgba(254, 0, 0, 0.02));
-      border-color: rgba(254, 0, 0, 0.2);
     }
 
-    .evidence-card__quote {
+    .testimonial-card__quote {
       font-size: var(--text-lg);
       font-style: italic;
       line-height: 1.7;
@@ -1692,7 +1641,7 @@
       margin-bottom: var(--space-5);
     }
 
-    .evidence-card__quote::before {
+    .testimonial-card__quote::before {
       content: '"';
       display: block;
       font-size: 3rem;
@@ -1702,23 +1651,48 @@
       margin-bottom: var(--space-2);
     }
 
-    .evidence-card__attribution {
+    .testimonial-card__attribution {
       font-size: var(--text-sm);
       color: var(--white-60);
     }
 
-    .evidence-card__attribution strong {
+    .testimonial-card__attribution strong {
       color: var(--white);
     }
 
+    /* Client Logos Grid */
+    .client-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-8);
+      padding: var(--space-8) 0;
+    }
+
+    .client-logo {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--white-50);
+      padding: var(--space-4) var(--space-6);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--white-10);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-base);
+    }
+
+    .client-logo:hover {
+      color: var(--white);
+      border-color: var(--red-accent);
+    }
+
     @media (max-width: 900px) {
-      .evidence__grid {
+      .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 600px) {
-      .evidence__grid {
+      .testimonials-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -2629,125 +2603,31 @@
         </div>
       </div>
 
-      <div class="evidence__grid">
-        <!-- Upbound -->
-        <div class="evidence-card fade-in">
-          <div class="evidence-card__industry">Retail & Finance</div>
-          <div class="evidence-card__client">Upbound / RAC / Acima</div>
-          <div class="evidence-card__description">
-            For more than 20 years, we've helped Upbound brands acquire new customers and grow existing ones through a rich data environment, insightful analytics, and digital innovation.
-          </div>
-          <div class="evidence-card__result">
-            <span class="result-label">Result:</span> Leading the way in both store and web-based customer growth
-          </div>
-        </div>
-
-        <!-- Purina -->
-        <div class="evidence-card fade-in stagger-1">
-          <div class="evidence-card__industry">Consumer Goods</div>
-          <div class="evidence-card__client">Purina</div>
-          <div class="evidence-card__description">
-            We're helping Purina grow its customers through a personalized CRM program across 36 brands designed to keep customers in the Purina family as their pet travels through its life.
-          </div>
-          <div class="evidence-card__result">
-            <span class="result-label">Result:</span> More pet owners staying in the Purina family of brands, longer
-          </div>
-        </div>
-
-        <!-- Daikin -->
-        <div class="evidence-card fade-in stagger-2">
-          <div class="evidence-card__industry">HVAC & Manufacturing</div>
-          <div class="evidence-card__client">Daikin / Goodman</div>
-          <div class="evidence-card__description">
-            We're helping Daikin, the world's largest HVAC company, grow through a lead-generation media program designed to drive heating & air conditioning leads to its 5,000+ dealers.
-          </div>
-          <div class="evidence-card__result">
-            <span class="result-label">Result:</span> <strong>20x increase</strong> in dealer leads across the country
-          </div>
-        </div>
-
-        <!-- Regis -->
-        <div class="evidence-card fade-in stagger-3">
-          <div class="evidence-card__industry">Salons & Services</div>
-          <div class="evidence-card__client">Regis / Supercuts</div>
-          <div class="evidence-card__description">
-            We're helping Supercuts drive new salon visits and retain their best customers through a data-driven CRM program including data engineering, strategy, analytics, and email & SMS creative.
-          </div>
-          <div class="evidence-card__result">
-            <span class="result-label">Result:</span> More customers while driving quicker awareness and response
-          </div>
-        </div>
-
-        <!-- Texas Health -->
-        <div class="evidence-card fade-in stagger-1">
-          <div class="evidence-card__industry">Healthcare</div>
-          <div class="evidence-card__client">Texas Health Resources</div>
-          <div class="evidence-card__description">
-            We're helping Texas Health Resources drive new patient visits across more than 400 locations. As AOR for data-driven strategy and creative, we support specialized service lines like heart & vascular, maternity care, orthopedics, and more.
-          </div>
-          <div class="evidence-card__result">
-            <span class="result-label">Result:</span> More patients visiting the Texas Health network for wellness care
-          </div>
-        </div>
-
-        <!-- Testimonial -->
-        <div class="evidence-card evidence-card--quote fade-in stagger-2">
-          <div class="evidence-card__quote">
+      <!-- Testimonials -->
+      <div class="testimonials-grid fade-in">
+        <div class="testimonial-card">
+          <div class="testimonial-card__quote">
             "The biggest difference between Tandem and other agencies is I don't just get advice. I get outstanding final products and deliverables that I can actually use to improve our business."
           </div>
-          <div class="evidence-card__attribution">
+          <div class="testimonial-card__attribution">
             <strong>Kaitlyn Kasten</strong><br>
             VP of Brand & Growth Strategies
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clients Section -->
-  <section class="section section--gradient" id="clients">
-    <div class="container">
-      <div class="section__header fade-in">
-        <span class="section__label">Our Clients</span>
-        <h2 class="section__title">Long-Term Relationships Built on Results</h2>
-        <p class="section__subtitle">
-          Some clients have been with us since day one. That kind of partnership only happens when the work works - and when people actually enjoy working together.
-        </p>
+        <!-- Additional testimonials will go here -->
       </div>
 
-      <div class="clients__grid fade-in">
-        <div class="client-card">
-          <h4 class="client-card__name">Upbound</h4>
-          <p class="client-card__description">20+ years helping Upbound brands acquire and grow customers through data-driven strategies.</p>
-        </div>
-        <div class="client-card">
-          <h4 class="client-card__name">Rent-A-Center</h4>
-          <p class="client-card__description">Customer acquisition and retention driving store and web-based growth.</p>
-        </div>
-        <div class="client-card">
-          <h4 class="client-card__name">Acima</h4>
-          <p class="client-card__description">Lease-to-own growth through integrated media and analytics.</p>
-        </div>
-        <div class="client-card">
-          <h4 class="client-card__name">Daikin</h4>
-          <p class="client-card__description">20x increase in dealer leads for the world's largest HVAC company.</p>
-        </div>
-        <div class="client-card">
-          <h4 class="client-card__name">Goodman</h4>
-          <p class="client-card__description">HVAC brand growth through targeted dealer lead generation.</p>
-        </div>
-        <div class="client-card">
-          <h4 class="client-card__name">Regis</h4>
-          <p class="client-card__description">Data-driven CRM for Supercuts, SmartStyle, and Cost Cutters salons.</p>
-        </div>
-        <div class="client-card">
-          <h4 class="client-card__name">Purina</h4>
-          <p class="client-card__description">Personalized CRM across 36 pet care brands for lifecycle retention.</p>
-        </div>
-        <div class="client-card">
-          <h4 class="client-card__name">Benihana</h4>
-          <p class="client-card__description">Data-driven CRM for Benihana and The One Group's multiple restaurant brands.</p>
-        </div>
+      <!-- Client Logos -->
+      <div class="client-logos fade-in" style="margin-top: var(--space-16);">
+        <div class="client-logo">Upbound</div>
+        <div class="client-logo">Rent-A-Center</div>
+        <div class="client-logo">Acima</div>
+        <div class="client-logo">Daikin</div>
+        <div class="client-logo">Goodman</div>
+        <div class="client-logo">Purina</div>
+        <div class="client-logo">Regis</div>
+        <div class="client-logo">Texas Health</div>
+        <div class="client-logo">Benihana</div>
       </div>
     </div>
   </section>
