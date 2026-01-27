@@ -274,19 +274,23 @@
 </head>
 <body>
 
-  <header class="header">
+  <nav class="header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(28, 28, 30, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
     <div class="container">
       <div class="header__inner">
         <a href="index.html" class="header__logo">
           <img src="photos/tandem-logo.png" alt="Tandem Theory">
         </a>
-        <a href="index.html" class="header__back">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Back to Home
-        </a>
+        <ul style="display: flex; align-items: center; gap: 2rem; list-style: none;">
+          <li><a href="index.html#about" style="font-size: 0.875rem; font-weight: 500; color: var(--white-70); transition: color 150ms;">About</a></li>
+          <li><a href="index.html#platform" style="font-size: 0.875rem; font-weight: 500; color: var(--white-70); transition: color 150ms;">Technology</a></li>
+          <li><a href="index.html#capabilities" style="font-size: 0.875rem; font-weight: 500; color: var(--white-70); transition: color 150ms;">Services</a></li>
+          <li><a href="index.html#results" style="font-size: 0.875rem; font-weight: 500; color: var(--white-70); transition: color 150ms;">Results</a></li>
+          <li><a href="index.html#contact" style="padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 500; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: var(--white);">Contact</a></li>
+        </ul>
       </div>
     </div>
-  </header>
+  </nav>
+  <div style="height: 80px;"></div>
 
   <main>
     <section class="page-header">
