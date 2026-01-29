@@ -1639,10 +1639,25 @@
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-2);
+      max-width: 280px;
     }
 
     .partner-category--vertical .partner-category__logos {
       flex-direction: column;
+      max-width: none;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    /* Top row categories need constrained width for 2-row wrapping */
+    .tech-ecosystem__partner-row--top .partner-category {
+      flex: 1;
+      min-width: 180px;
+      max-width: 320px;
+    }
+
+    .tech-ecosystem__partner-row--top .partner-category__logos {
+      max-width: 100%;
     }
 
     .partner-logo {
