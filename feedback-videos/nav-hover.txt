@@ -1,0 +1,4 @@
+Okay, also love the underline effect here, but when you're on a section, shouldn't we keep
+it underline indicating they know that we're there?
+Just a subtle thing.
+I know we have it here, but it'd be great if that also stayed that way.

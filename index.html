@@ -321,8 +321,13 @@
       transition: width var(--transition-base);
     }
 
-    .nav__link:hover::after {
+    .nav__link:hover::after,
+    .nav__link--active::after {
       width: 100%;
+    }
+
+    .nav__link--active {
+      color: var(--white);
     }
 
     .nav__toggle {
@@ -3478,6 +3483,34 @@
 
     document.querySelectorAll('.fade-in').forEach(el => {
       observer.observe(el);
+    });
+
+    // ========================================
+    // ACTIVE NAV TRACKING
+    // ========================================
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav__link');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('nav__link--active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('nav__link--active');
+            }
+          });
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(section => {
+      sectionObserver.observe(section);
     });
 
     // ========================================
