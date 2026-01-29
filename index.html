@@ -1127,8 +1127,8 @@
 
     .about__stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-8);
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-6);
       margin: var(--space-16) 0;
       padding: var(--space-12) 0;
       border-top: 1px solid var(--white-10);
@@ -1190,8 +1190,14 @@
       }
 
       .about__stats {
-        grid-template-columns: 1fr;
-        gap: var(--space-8);
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .about__stats {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -2701,21 +2707,18 @@
   <!-- About Section -->
   <section class="section section--gradient about" id="about">
     <div class="container">
-      <!-- Theory + Humans Narrative -->
+      <!-- About Narrative -->
       <div class="about__narrative fade-in">
         <span class="theory__tagline">About</span>
         <h2 class="theory__title">
-          Our Theory: Proven marketing experts empowered by leading-edge marketing technology deliver the greatest customer growth.
+          Experienced marketers driving growth, with technology scaling their impact.
         </h2>
         <div class="about__copy">
-          <p>
-            This is the Theory in Tandem Theory. Humans and technology working together. Not technology replacing people. Not people ignoring technology. Strategic expertise and technical capability, each making the other more effective.
-          </p>
           <p>
             Our founders spent decades at the world's largest agencies. They saw technology create fragmentation instead of clarity. So they built Tandem around experts who understand how strategy, creative, media, and analytics actually drive growth. Clients stay because we deliver results, not theater.
           </p>
           <p>
-            <strong>Together, our people and our technology are designed to work as a system — experienced marketers driving growth, with technology scaling their impact.</strong>
+            <strong>Our people and our technology are designed to work as a system.</strong> Not technology replacing people. Not people ignoring technology. Strategic expertise and technical capability, each making the other more effective.
           </p>
         </div>
       </div>
@@ -2731,8 +2734,20 @@
           <span class="about__stat-label">Inc. 5000</span>
         </div>
         <div class="about__stat">
-          <span class="about__stat-number">25+</span>
-          <span class="about__stat-label">Client Relationships</span>
+          <span class="about__stat-number">92</span>
+          <span class="about__stat-label">Net Promoter Score</span>
+        </div>
+        <div class="about__stat">
+          <span class="about__stat-number">11</span>
+          <span class="about__stat-label">Years Strong</span>
+        </div>
+        <div class="about__stat">
+          <span class="about__stat-number">$500M+</span>
+          <span class="about__stat-label">Media Managed</span>
+        </div>
+        <div class="about__stat">
+          <span class="about__stat-number">150+</span>
+          <span class="about__stat-label">AI Agents Built</span>
         </div>
       </div>
 
