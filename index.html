@@ -638,6 +638,12 @@
       line-height: 1.7;
     }
 
+    .section__subtitle--secondary {
+      margin-top: var(--space-4);
+      font-size: 1rem;
+      color: var(--white-40);
+    }
+
     /* ========================================
        OUR THEORY SECTION
        ======================================== */
@@ -1815,6 +1821,40 @@
       line-height: 1.4;
     }
 
+    /* Inner Box CTA */
+    .tech-ecosystem__cta {
+      margin-top: var(--space-6);
+      text-align: center;
+    }
+
+    .tech-ecosystem__cta .btn {
+      background: transparent;
+      border: 1px solid var(--white-40);
+      color: var(--white-90);
+      padding: var(--space-3) var(--space-6);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      transition: all var(--transition-base);
+    }
+
+    .tech-ecosystem__cta .btn:hover {
+      background: rgba(254, 0, 0, 0.15);
+      border-color: var(--red-accent);
+      box-shadow: 0 0 20px rgba(254, 0, 0, 0.25);
+    }
+
+    .tech-ecosystem__cta .btn svg {
+      transition: transform var(--transition-fast);
+    }
+
+    .tech-ecosystem__cta .btn:hover svg {
+      transform: translateX(3px);
+    }
+
     /* Outer Box Footer */
     .tech-ecosystem__outer-footer {
       text-align: center;
@@ -2747,9 +2787,12 @@
     <div class="container">
       <div class="section__header fade-in">
         <span class="section__label">Technology V2</span>
-        <h2 class="section__title">Your Tech Stack, Amplified</h2>
+        <h2 class="section__title">Marketing Intelligence at Your Command</h2>
         <p class="section__subtitle">
-          We integrate seamlessly with your existing platforms—then go further. Where off-the-shelf tools fall short, we've built proprietary solutions that fill the gaps. Technology agnostic. Gap-filling where it matters.
+          Your platforms generate data. Our technology turns it into competitive advantage.
+        </p>
+        <p class="section__subtitle section__subtitle--secondary">
+          We integrate seamlessly with your existing tech stack—then go further. Where off-the-shelf tools fall short, we've built proprietary solutions that close the gaps. The result: less noise, more signal, and decisions backed by intelligence your competitors don't have access to.
         </p>
       </div>
 
@@ -2957,6 +3000,16 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Learn More CTA -->
+                <div class="tech-ecosystem__cta">
+                  <a href="#contact" class="btn btn--outline-light btn--sm">
+                    Learn More About EDWARD
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -3007,7 +3060,7 @@
           <!-- Outer Box Footer -->
           <div class="tech-ecosystem__outer-footer">
             <p class="tech-ecosystem__outer-message">
-              Technology agnostic. Results focused.
+              Platform agnostic. Intelligence obsessed. Results guaranteed.
             </p>
           </div>
         </div>
