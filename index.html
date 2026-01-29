@@ -1563,101 +1563,115 @@
       margin: 0 auto;
     }
 
-    /* Partners Grid - Surrounds Inner Box */
-    .tech-ecosystem__partners {
+    /* ========================================
+       ECOSYSTEM GRID - THREE-ROW LAYOUT
+       ======================================== */
+    .ecosystem-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    /* Row layouts */
+    .ecosystem-row {
+      display: flex;
+      gap: var(--space-4);
+    }
+
+    /* ROW 1: Data Infrastructure - horizontal with 3 categories */
+    .ecosystem-row--top {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .ecosystem-row--top .partner-category {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .ecosystem-row--top .partner-category--wide {
+      flex: 2;
+      max-width: 420px;
+    }
+
+    .ecosystem-row--top .partner-category--medium {
+      flex: 1;
+      max-width: 300px;
+    }
+
+    /* ROW 2: Three-column with center focus */
+    .ecosystem-row--middle {
       display: grid;
-      grid-template-areas:
-        "top top top"
-        "left center right"
-        "bottom bottom bottom";
       grid-template-columns: 1fr 2fr 1fr;
-      grid-template-rows: auto 1fr auto;
       gap: var(--space-6);
-      min-height: 500px;
+      min-height: 420px;
+      align-items: stretch;
     }
 
-    /* Partner Row Positioning */
-    .tech-ecosystem__partner-row--top {
-      grid-area: top;
-      display: flex;
-      justify-content: center;
-      gap: var(--space-6);
-      flex-wrap: wrap;
-    }
-
-    .tech-ecosystem__partner-row--bottom {
-      grid-area: bottom;
-      display: flex;
-      justify-content: center;
-      gap: var(--space-6);
-      flex-wrap: wrap;
-    }
-
-    .tech-ecosystem__partner-col--left {
-      grid-area: left;
+    /* Side columns (CRM and Media) */
+    .partner-category--side {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: var(--space-6);
+      padding: var(--space-5);
+      height: 100%;
     }
 
-    .tech-ecosystem__partner-col--right {
-      grid-area: right;
+    .partner-category__logos--grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2);
+    }
+
+    /* ROW 3: Four equal categories */
+    .ecosystem-row--bottom {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+    }
+
+    .partner-category--compact {
+      padding: var(--space-4);
+    }
+
+    .partner-category--compact .partner-category__logos {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: var(--space-6);
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: flex-start;
     }
 
-    /* Partner Category Styling */
+    /* Partner Category Base Styling */
     .partner-category {
       padding: var(--space-4);
-      background: var(--white-05);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--white-10);
       border-radius: var(--radius-lg);
       transition: all var(--transition-base);
     }
 
     .partner-category:hover {
-      background: var(--white-10);
+      background: rgba(255, 255, 255, 0.06);
       border-color: var(--white-20);
     }
 
     .partner-category__label {
       display: block;
       font-family: var(--font-mono);
-      font-size: 0.625rem;
+      font-size: 0.6875rem;
       font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--red-light);
       margin-bottom: var(--space-3);
-      opacity: 0.8;
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--white-10);
     }
 
     .partner-category__logos {
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-2);
-      max-width: 280px;
-    }
-
-    .partner-category--vertical .partner-category__logos {
-      flex-direction: column;
-      max-width: none;
-      max-height: 220px;
-      overflow-y: auto;
-    }
-
-    /* Top row categories need constrained width for 2-row wrapping */
-    .tech-ecosystem__partner-row--top .partner-category {
-      flex: 1;
-      min-width: 180px;
-      max-width: 320px;
-    }
-
-    .tech-ecosystem__partner-row--top .partner-category__logos {
-      max-width: 100%;
     }
 
     .partner-logo {
@@ -1677,11 +1691,11 @@
 
     /* INNER BOX - Tandem Proprietary Tools */
     .tech-ecosystem__inner {
-      grid-area: center;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex: 2;
     }
 
     .tech-ecosystem__inner-content {
@@ -1891,6 +1905,42 @@
       }
     }
 
+    /* Responsive - Tablet */
+    @media (max-width: 1024px) {
+      .ecosystem-row--middle {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+
+      .ecosystem-row--middle .tech-ecosystem__inner {
+        order: -1;
+      }
+
+      .partner-category--side {
+        padding: var(--space-4);
+      }
+
+      .partner-category__logos--grid {
+        grid-template-columns: repeat(4, auto);
+        justify-content: center;
+      }
+
+      .ecosystem-row--bottom {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ecosystem-row--top {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .ecosystem-row--top .partner-category--wide,
+      .ecosystem-row--top .partner-category--medium {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
     /* Responsive - Mobile */
     @media (max-width: 768px) {
       .tech-ecosystem__outer {
@@ -1910,9 +1960,12 @@
         height: 85px;
       }
 
-      .partner-category {
-        width: 100%;
-        max-width: 300px;
+      .ecosystem-row--bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-category__logos--grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .partner-category__logos {
@@ -2817,81 +2870,70 @@
             </p>
           </div>
 
-          <!-- Partners Grid - Arranged around Inner Box -->
-          <div class="tech-ecosystem__partners">
+          <!-- Partners Grid - NEW THREE-ROW LAYOUT -->
+          <div class="ecosystem-grid">
 
-            <!-- Top Row Categories -->
-            <div class="tech-ecosystem__partner-row tech-ecosystem__partner-row--top">
-              <div class="partner-category">
+            <!-- ROW 1: Data Infrastructure -->
+            <div class="ecosystem-row ecosystem-row--top">
+              <div class="partner-category partner-category--wide">
                 <span class="partner-category__label">Data & Analytics</span>
                 <div class="partner-category__logos">
                   <span class="partner-logo">Snowflake</span>
+                  <span class="partner-logo">Databricks</span>
+                  <span class="partner-logo">BigQuery</span>
                   <span class="partner-logo">Domo</span>
                   <span class="partner-logo">Tableau</span>
-                  <span class="partner-logo">Google Analytics</span>
-                  <span class="partner-logo">BigQuery</span>
-                  <span class="partner-logo">Databricks</span>
                   <span class="partner-logo">Looker</span>
                   <span class="partner-logo">Power BI</span>
                   <span class="partner-logo">Amplitude</span>
+                  <span class="partner-logo">Google Analytics</span>
                 </div>
               </div>
 
-              <div class="partner-category">
-                <span class="partner-category__label">CRM</span>
+              <div class="partner-category partner-category--medium">
+                <span class="partner-category__label">CDP</span>
                 <div class="partner-category__logos">
+                  <span class="partner-logo">Segment</span>
+                  <span class="partner-logo">Tealium</span>
+                  <span class="partner-logo">mParticle</span>
+                  <span class="partner-logo">BlueConic</span>
+                  <span class="partner-logo">Zeta</span>
+                </div>
+              </div>
+
+              <div class="partner-category partner-category--medium">
+                <span class="partner-category__label">CMS & Commerce</span>
+                <div class="partner-category__logos">
+                  <span class="partner-logo">Shopify</span>
+                  <span class="partner-logo">Adobe Commerce</span>
+                  <span class="partner-logo">BigCommerce</span>
+                  <span class="partner-logo">Contentful</span>
+                  <span class="partner-logo">Sitecore</span>
+                  <span class="partner-logo">WordPress</span>
+                  <span class="partner-logo">Drupal</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROW 2: CRM | TANDEM SUITE | MEDIA -->
+            <div class="ecosystem-row ecosystem-row--middle">
+
+              <!-- Left: CRM -->
+              <div class="partner-category partner-category--side">
+                <span class="partner-category__label">CRM & Marketing Automation</span>
+                <div class="partner-category__logos partner-category__logos--grid">
                   <span class="partner-logo">Salesforce</span>
+                  <span class="partner-logo">HubSpot</span>
+                  <span class="partner-logo">Marketo</span>
                   <span class="partner-logo">Klaviyo</span>
                   <span class="partner-logo">Braze</span>
-                  <span class="partner-logo">HubSpot</span>
-                  <span class="partner-logo">Mailchimp</span>
-                  <span class="partner-logo">Marketo</span>
                   <span class="partner-logo">Iterable</span>
                   <span class="partner-logo">Attentive</span>
+                  <span class="partner-logo">Mailchimp</span>
                 </div>
               </div>
 
-              <div class="partner-category">
-                <span class="partner-category__label">Loyalty</span>
-                <div class="partner-category__logos">
-                  <span class="partner-logo">Sparkfly</span>
-                  <span class="partner-logo">Punchh</span>
-                  <span class="partner-logo">Paytronix</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Left Side Categories -->
-            <div class="tech-ecosystem__partner-col tech-ecosystem__partner-col--left">
-              <div class="partner-category partner-category--vertical">
-                <span class="partner-category__label">Media</span>
-                <div class="partner-category__logos">
-                  <span class="partner-logo">Google Ads</span>
-                  <span class="partner-logo">Meta</span>
-                  <span class="partner-logo">Bing</span>
-                  <span class="partner-logo">Pinterest</span>
-                  <span class="partner-logo">The Trade Desk</span>
-                  <span class="partner-logo">DV360</span>
-                  <span class="partner-logo">Amazon Ads</span>
-                  <span class="partner-logo">LinkedIn</span>
-                  <span class="partner-logo">TikTok</span>
-                  <span class="partner-logo">Criteo</span>
-                </div>
-              </div>
-
-              <div class="partner-category partner-category--vertical">
-                <span class="partner-category__label">Creative</span>
-                <div class="partner-category__logos">
-                  <span class="partner-logo">Adobe</span>
-                  <span class="partner-logo">Getty Images</span>
-                  <span class="partner-logo">Figma</span>
-                  <span class="partner-logo">Canva</span>
-                  <span class="partner-logo">Shutterstock</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- INNER BOX: Tandem Proprietary Tools -->
+              <!-- CENTER: Tandem Intelligence Suite -->
             <div class="tech-ecosystem__inner">
               <div class="tech-ecosystem__inner-glow"></div>
               <div class="tech-ecosystem__inner-content">
@@ -3029,57 +3071,66 @@
               </div>
             </div>
 
-            <!-- Right Side Categories -->
-            <div class="tech-ecosystem__partner-col tech-ecosystem__partner-col--right">
-              <div class="partner-category partner-category--vertical">
-                <span class="partner-category__label">CMS</span>
-                <div class="partner-category__logos">
-                  <span class="partner-logo">WordPress</span>
-                  <span class="partner-logo">Drupal</span>
-                  <span class="partner-logo">Shopify</span>
-                  <span class="partner-logo">Sitecore</span>
-                  <span class="partner-logo">Adobe Commerce</span>
-                  <span class="partner-logo">Contentful</span>
-                  <span class="partner-logo">BigCommerce</span>
+              <!-- Right: Media -->
+              <div class="partner-category partner-category--side">
+                <span class="partner-category__label">Media Platforms</span>
+                <div class="partner-category__logos partner-category__logos--grid">
+                  <span class="partner-logo">Google Ads</span>
+                  <span class="partner-logo">Meta</span>
+                  <span class="partner-logo">The Trade Desk</span>
+                  <span class="partner-logo">DV360</span>
+                  <span class="partner-logo">Amazon Ads</span>
+                  <span class="partner-logo">LinkedIn</span>
+                  <span class="partner-logo">TikTok</span>
+                  <span class="partner-logo">Pinterest</span>
+                  <span class="partner-logo">Bing</span>
+                  <span class="partner-logo">Criteo</span>
                 </div>
               </div>
 
-              <div class="partner-category partner-category--vertical">
-                <span class="partner-category__label">CDP</span>
+            </div>
+
+            <!-- ROW 3: Execution & Insights -->
+            <div class="ecosystem-row ecosystem-row--bottom">
+              <div class="partner-category partner-category--compact">
+                <span class="partner-category__label">Creative</span>
                 <div class="partner-category__logos">
-                  <span class="partner-logo">Segment</span>
-                  <span class="partner-logo">Tealium</span>
-                  <span class="partner-logo">mParticle</span>
-                  <span class="partner-logo">BlueConic</span>
-                  <span class="partner-logo">Zeta</span>
+                  <span class="partner-logo">Adobe</span>
+                  <span class="partner-logo">Figma</span>
+                  <span class="partner-logo">Getty Images</span>
+                  <span class="partner-logo">Canva</span>
+                  <span class="partner-logo">Shutterstock</span>
                 </div>
               </div>
 
-              <div class="partner-category partner-category--vertical">
+              <div class="partner-category partner-category--compact">
+                <span class="partner-category__label">Loyalty</span>
+                <div class="partner-category__logos">
+                  <span class="partner-logo">Sparkfly</span>
+                  <span class="partner-logo">Punchh</span>
+                  <span class="partner-logo">Paytronix</span>
+                </div>
+              </div>
+
+              <div class="partner-category partner-category--compact">
                 <span class="partner-category__label">Research & Insights</span>
                 <div class="partner-category__logos">
                   <span class="partner-logo">Nielsen</span>
-                  <span class="partner-logo">McKinsey</span>
                   <span class="partner-logo">Gartner</span>
                   <span class="partner-logo">Forrester</span>
                   <span class="partner-logo">eMarketer</span>
                 </div>
               </div>
-            </div>
 
-            <!-- Bottom Row Categories -->
-            <div class="tech-ecosystem__partner-row tech-ecosystem__partner-row--bottom">
-              <div class="partner-category">
-                <span class="partner-category__label">Client Service</span>
+              <div class="partner-category partner-category--compact">
+                <span class="partner-category__label">Collaboration</span>
                 <div class="partner-category__logos">
                   <span class="partner-logo">Slack</span>
                   <span class="partner-logo">Zoom</span>
                   <span class="partner-logo">Asana</span>
                   <span class="partner-logo">Monday</span>
-                  <span class="partner-logo">Trello</span>
                 </div>
               </div>
-
             </div>
 
           </div>
