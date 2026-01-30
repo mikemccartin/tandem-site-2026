@@ -2708,6 +2708,93 @@
         width: 100%;
       }
     }
+
+    /* ========================================
+       PHOTO STRIPS - Horizontal Scroll Parallax
+       ======================================== */
+    .photo-strip {
+      position: relative;
+      overflow: hidden;
+      padding: var(--space-6) 0;
+      background: var(--charcoal);
+    }
+
+    .photo-strip__track {
+      display: flex;
+      gap: var(--space-4);
+      width: max-content;
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .photo-strip__track img {
+      width: 270px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+      opacity: 0.8;
+      filter: saturate(0.85) brightness(1.02);
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .photo-strip__track img:hover {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+
+    .photo-strip--ltr .photo-strip__track {
+      transform: translateX(-15%);
+    }
+
+    .photo-strip--rtl .photo-strip__track {
+      transform: translateX(0);
+    }
+
+    .photo-strip::before,
+    .photo-strip::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .photo-strip::before {
+      left: 0;
+      background: linear-gradient(to right, var(--charcoal) 0%, transparent 100%);
+    }
+
+    .photo-strip::after {
+      right: 0;
+      background: linear-gradient(to left, var(--charcoal) 0%, transparent 100%);
+    }
+
+    @media (max-width: 768px) {
+      .photo-strip__track {
+        gap: var(--space-3);
+      }
+
+      .photo-strip__track img {
+        width: 200px;
+        height: 133px;
+      }
+
+      .photo-strip::before,
+      .photo-strip::after {
+        width: 60px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .photo-strip--ltr .photo-strip__track,
+      .photo-strip--rtl .photo-strip__track {
+        transform: translateX(-10%) !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3145,6 +3232,22 @@
   </section>
   <!-- ====== END TECHNOLOGY ====== -->
 
+  <!-- Photo Strip 1 -->
+  <div class="photo-strip photo-strip--ltr" aria-hidden="true">
+    <div class="photo-strip__track">
+      <img src="photos/strips/strip1-01.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-02.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-03.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-04.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-05.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-06.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-07.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-08.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-09.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip1-10.jpg" alt="" loading="lazy" width="270" height="180">
+    </div>
+  </div>
+
   <!-- Capabilities Section -->
   <section class="section section--darker" id="capabilities">
     <div class="container">
@@ -3260,6 +3363,22 @@
       </div>
     </div>
   </section>
+
+  <!-- Photo Strip 2 -->
+  <div class="photo-strip photo-strip--rtl" aria-hidden="true">
+    <div class="photo-strip__track">
+      <img src="photos/strips/strip2-01.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-02.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-03.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-04.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-05.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-06.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-07.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-08.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-09.jpg" alt="" loading="lazy" width="270" height="180">
+      <img src="photos/strips/strip2-10.jpg" alt="" loading="lazy" width="270" height="180">
+    </div>
+  </div>
 
   <!-- Results Section -->
   <section class="section section--gradient" id="results">
@@ -3618,6 +3737,81 @@
     }
 
     setInterval(animateAgents, 2000);
+
+    // ========================================
+    // PHOTO STRIP PARALLAX SCROLL
+    // ========================================
+    const photoStrips = document.querySelectorAll('.photo-strip');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion && photoStrips.length > 0) {
+      const stripData = new Map();
+
+      // Initialize each strip
+      photoStrips.forEach(strip => {
+        const track = strip.querySelector('.photo-strip__track');
+        const isLTR = strip.classList.contains('photo-strip--ltr');
+        stripData.set(strip, {
+          track,
+          isLTR,
+          isVisible: false,
+          progress: 0
+        });
+      });
+
+      // Observer to track visibility
+      const stripObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const data = stripData.get(entry.target);
+          if (data) {
+            data.isVisible = entry.isIntersecting;
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '100px 0px',
+        threshold: 0
+      });
+
+      photoStrips.forEach(strip => stripObserver.observe(strip));
+
+      // Scroll handler with RAF
+      let ticking = false;
+
+      function updateStrips() {
+        const viewportHeight = window.innerHeight;
+
+        stripData.forEach((data, strip) => {
+          if (!data.isVisible) return;
+
+          const rect = strip.getBoundingClientRect();
+          // Calculate progress: 0 when entering bottom, 1 when leaving top
+          const progress = Math.max(0, Math.min(1,
+            (viewportHeight - rect.top) / (viewportHeight + rect.height)
+          ));
+
+          // LTR: starts at -15%, ends at 0% (moves right)
+          // RTL: starts at 0%, ends at -15% (moves left)
+          const translateX = data.isLTR
+            ? -15 + (progress * 15)  // -15% to 0%
+            : -(progress * 15);       // 0% to -15%
+
+          data.track.style.transform = `translateX(${translateX}%)`;
+        });
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateStrips);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Initial position
+      updateStrips();
+    }
   </script>
 </body>
 </html>
