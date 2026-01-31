@@ -2734,13 +2734,10 @@
       object-fit: cover;
       border-radius: var(--radius-md);
       flex-shrink: 0;
-      opacity: 0.8;
-      filter: saturate(0.85) brightness(1.02);
-      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      transition: transform var(--transition-fast);
     }
 
     .photo-strip__track img:hover {
-      opacity: 1;
       transform: scale(1.02);
     }
 
